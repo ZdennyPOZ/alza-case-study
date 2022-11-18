@@ -1,6 +1,8 @@
-import {IEntity} from '../interfaces/entity.model'
-
-export class Hero implements IEntity {
+export interface IHero {
+    id:number;
+    name:string;
+}
+export class Hero implements IHero {
     private _id : number;
     private _name : string;
 

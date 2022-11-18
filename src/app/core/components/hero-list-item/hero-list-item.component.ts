@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
 import { Hero } from '../../models/hero/hero.model';
 
 @Component({
@@ -7,5 +7,15 @@ import { Hero } from '../../models/hero/hero.model';
   styleUrls: ['./hero-list-item.component.scss']
 })
 export class HeroListItemComponent{
-  @Input() hero : Hero = new Hero("Unnamed",-1);
+  @Input() hero : Hero | undefined;
+  @Output() onDetailClick = new EventEmitter<Hero>();
+  @Output() onDeleteClick = new EventEmitter<Hero>();
+
+  public detailClicked():void{
+    this.onDetailClick.emit(this.hero);
+  }
+  public deleteClicked():void{
+    this.onDeleteClick.emit(this.hero);
+  }
 }
+
