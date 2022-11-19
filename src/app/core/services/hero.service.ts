@@ -19,12 +19,8 @@ export class HeroService {
     new Hero('Ha Ta Mon La', 9),
   ];
 
-  constructor() {}
-
   private getHero(id: number): Hero | undefined {
-    let wanted: Hero | undefined = undefined;
-    wanted = this._heroList.find((hero: Hero) => hero.id === id);
-    return wanted;
+    return this._heroList.find((hero: Hero) => hero.id === id);
   }
 
   private getHeroIndex(hero: Hero) {
@@ -35,14 +31,12 @@ export class HeroService {
     return of(this._heroList);
   }
 
-  public updateHero(id: number, hero: Hero): void {
-    let selectedHero: Hero | undefined = this.getHero(id);
+  public updateHero(hero: Hero): void {
+    let selectedHero: Hero | undefined = this.getHero(hero.id);
     if (selectedHero === undefined) {
       throw new Error('Hero with this id does not exist.');
     }
-    let index: number = this.getHeroIndex(selectedHero);
-    hero.id = this._heroList[index].id;
-    this._heroList[index] = hero;
+    this._heroList[this.getHeroIndex(selectedHero)] = hero;
   }
 
   public deleteHero(hero: Hero): void {
