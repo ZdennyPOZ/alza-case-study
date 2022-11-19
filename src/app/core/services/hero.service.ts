@@ -31,6 +31,10 @@ export class HeroService {
     return of(this._heroList);
   }
 
+  public getHeroById$(id:number){
+    return of(this._heroList.find(hero => hero.id === id));
+  }
+
   public updateHero(hero: Hero): void {
     let selectedHero: Hero | undefined = this.getHero(hero.id);
     if (selectedHero === undefined) {

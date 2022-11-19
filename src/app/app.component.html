@@ -7,6 +7,7 @@
         </div>
         <input class="controls-switch-search" placeholder="Find your hero..">
     </div>
+    <router-outlet></router-outlet>
     <dashboard *ngIf="showDashboard"></dashboard>
     <hero-list *ngIf="!showDashboard"></hero-list>
 </div>

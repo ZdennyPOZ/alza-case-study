@@ -17,4 +17,6 @@ export class DashboardComponent {
     })
   }
 
+  openHeroDetail($event : Hero){
+  }
 }
