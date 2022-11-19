@@ -4,4 +4,13 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {}
+export class AppComponent {
+  showDashboard : boolean = true;
+
+  public showList(): void{
+    this.showDashboard = false;
+  }
+  public showDash(): void{
+    this.showDashboard = true;
+  }
+}

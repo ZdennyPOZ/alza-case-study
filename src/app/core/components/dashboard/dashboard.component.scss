@@ -1,14 +1,9 @@
-.hero-list{
-    hero-item{
-        padding: 20px;
-        &:first-child{ 
-            padding: 0px;
-        }
-        &:last-child{ 
-            padding: 0px;
-        }
-    }
-    margin-top: 20px;  
+div{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
     overflow-y: scroll;
     max-height: calc(100vh - 300px);
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
@@ -16,4 +11,7 @@
     &::-webkit-scrollbar{
         display: none;  /* Safari and Chrome */
     }  
+}
+dashboard-item{
+    flex:1
 }

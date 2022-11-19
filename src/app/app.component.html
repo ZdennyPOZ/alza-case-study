@@ -1,2 +1,12 @@
 <h1>Tour of heroes</h1>
-<hero-list></hero-list>
+<div class="content">
+    <div class="controls">
+        <div class="controls-switch">
+            <button class="controls-switch-dash" [ngClass]="{'controls-switch-active': showDashboard === true}" (click)="showDash()">Dashboard</button>
+            <button class="controls-switch-list" [ngClass]="{'controls-switch-active': !showDashboard === true}" (click)="showList()">Heroes</button>
+        </div>
+        <input class="controls-switch-search" placeholder="Find your hero..">
+    </div>
+    <dashboard *ngIf="showDashboard"></dashboard>
+    <hero-list *ngIf="!showDashboard"></hero-list>
+</div>
