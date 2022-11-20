@@ -1,0 +1,8 @@
+<h2>Popular heroes</h2>
+<div>
+   <ng-container *ngFor="let hero of heroes; let i = index">
+      <ng-container *ngIf="i<8">
+         <dashboard-item (onDetailClick)="openHeroDetail(hero)" [hero]="hero"></dashboard-item> 
+      </ng-container>
+   </ng-container>
+<div>

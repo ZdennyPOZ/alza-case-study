@@ -1,0 +1,52 @@
+@import "../colors.scss";
+
+.content{
+    margin: 0 auto;
+    max-width: 50%;
+}
+.controls{
+    display: flex;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    &-switch{
+       &-dash{
+        margin-right: 20px;
+       } 
+       &-search{
+        height: 48px;
+       }
+       &-create{
+        color: $punchyellow;
+       }
+       &-others{
+        display: flex;
+        flex-wrap: nowrap;
+       }
+    &-active{
+        background-color: transparent;
+        border-bottom: 2px solid white;
+        color: $punchyellow;
+    }
+  }
+}
+.scrollable{
+    height: calc(100vh - 295px);
+    overflow: auto;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;  
+    &::-webkit-scrollbar{
+        display: none;  
+    } 
+}
+@media only screen and (max-width: 1279px) {
+    .controls-switch-search{
+        margin-top: 20px;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .content{
+        max-width: 100%;
+    }
+}
