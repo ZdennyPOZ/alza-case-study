@@ -10,7 +10,6 @@ export class DashboardItemComponent{
 
   @Input() hero : Hero | undefined;
   @Output() onDetailClick = new EventEmitter<Hero>();
-  @Output() onDeleteClick = new EventEmitter<Hero>();
 
   public detailClicked():void{
     this.onDetailClick.emit(this.hero);

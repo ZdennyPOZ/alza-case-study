@@ -1,9 +1,7 @@
+@import "./colors.scss";
+
 * {
     font-family: 'Roboto', sans-serif;
-}
-h1{
-    font-family: 'Taviraj', serif;
-    font-size: 50px;
 }
 
 html { height:100%; }
@@ -17,3 +15,45 @@ body {
     background: radial-gradient(#0d1d31 0%, #0c0d13 100%);
 }
 
+h1{
+    color: $defwhite;
+    font-style: italic;
+    text-align: center;
+    font-family: 'Taviraj', serif;
+    font-size: 50px;
+}
+
+
+h2{
+    color: $punchyellow;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+button{
+    padding: 0px 20px;
+    height: 50px;
+    background-color: $tspblack;
+    outline: none;
+    border: none;
+    color:$defwhite;
+    font-size: 22px;
+    &:hover{
+        cursor: pointer;
+        transition: background-color 0.5s ease;
+        background-color: transparent;
+    }
+}
+
+input{
+    background: transparent;
+    color: $defwhite;
+    font-size: 22px;
+    border: none;
+    outline: none;
+    border: 1px white;
+    letter-spacing: 5px;
+    background-color: $tspblack;
+    text-indent: 15px;
+    height: 51px;
+}
