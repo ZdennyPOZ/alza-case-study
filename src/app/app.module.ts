@@ -6,6 +6,7 @@ import { HeroListComponent } from './core/components/hero-list/hero-list.compone
 import { DashboardItemComponent } from './core/components/dashboard-item/dashboard-item.component';
 import { DashboardComponent } from './core/components/dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
+import { LongNameDirective } from './core/directives/long-name.directive';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
     HeroListComponent,
     DashboardItemComponent,
     DashboardComponent,
+    LongNameDirective,
   ],
   imports: [
     BrowserModule,

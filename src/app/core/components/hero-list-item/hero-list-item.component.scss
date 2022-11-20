@@ -1,34 +1,34 @@
-@import '../../../../colors.scss';
+@import "../../../../colors.scss";
 
-.item{
-    overflow:hidden;
-    display: flex;
-    letter-spacing: 5px;
-    justify-content: space-between;
-    width: 100%;
-    height: 50px;
-    line-height: 50px;
-    font-size:22px;
-    font-weight: 400;
-    text-indent: 20px;
-    background-color: $tspwhite;
-    color: white;
-    &:hover{
-        cursor: pointer;
-        transition: background-color 0.5s ease;
-        background-color: transparent;
-        .item-actions{
-            width: 80px;
-            -webkit-transition: width 0.3s ease;
-            transition: width 0.3s ease;
-        }
+.item {
+  overflow: hidden;
+  display: flex;
+  letter-spacing: 5px;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 22px;
+  font-weight: 400;
+  text-indent: 20px;
+  background-color: $tspwhite;
+  color: white;
+  &:hover {
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    background-color: transparent;
+    .item-actions {
+      width: 80px;
+      -webkit-transition: width 0.3s ease;  
+      transition: width 0.3s ease;
     }
-    &-info{
-        flex:1;
-    }
-    &-actions{
-        background-color: $tsppred;
-        color: $defwhite;
-        width: 0px;
-    }
+  }
+  &-info {
+    flex: 1;
+  }
+  &-actions {
+    background-color: $tsppred;
+    color: $defwhite;
+    width: 0px;
+  }
 }
