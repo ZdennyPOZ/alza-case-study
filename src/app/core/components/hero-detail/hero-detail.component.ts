@@ -10,16 +10,25 @@ import { HeroService } from '../../services/hero.service';
 })
 export class HeroDetailComponent implements OnInit {
 
-  public hero: Hero | undefined;
+  public hero: Hero =  new Hero('Placeholder', -1);
+
   constructor(private route: ActivatedRoute, private router: Router, private hs : HeroService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       const id = Number(params['id']);
       this.hs.getHeroById$(id).subscribe(res=>{
-        this.hero = res;
+        if(res!==undefined){
+          this.hero = res;
+        }
+        else{
+         this.closeDetail();
+        }
       })
     })
   }
 
+  public closeDetail(): void{
+    this.router.navigate(['']);
+  }
 }

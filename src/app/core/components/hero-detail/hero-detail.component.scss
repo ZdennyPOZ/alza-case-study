@@ -1,0 +1,57 @@
+@import "../../../../colors.scss";
+
+.detail{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: $tspblack;
+    margin-top: 20px;
+    min-height: 200px;   
+    font-size: 22px;
+    color: $defwhite;
+    min-width: 353px;
+    &-info{
+        margin: 20px 0px 20px 20px;
+        flex: 1;
+        &-heading{
+            font-weight: 600;
+            margin: 0 0 30px 0;
+        }
+        &-readonly{
+            width: 100%;
+        }
+        &-input{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            input{
+                background: transparent;
+                color: $defwhite;
+                font-size: 22px;
+                border: none;
+                outline: none;
+                border: 1px $defwhite;
+                background-color: $tspblack;
+                text-indent: 15px;
+                letter-spacing: 5px;
+            }
+        }
+        &-label{
+            margin-right: 20px;
+        }
+    }
+    &-actions{
+        flex: 1;
+        display: flex;
+        button{
+            min-width: 180px;
+            min-height: 80px;
+            flex: 1;
+            height: 100%;
+            letter-spacing: 5px;
+            &:first-child{
+               color: $punchyellow;
+            }
+        }
+    }
+}
