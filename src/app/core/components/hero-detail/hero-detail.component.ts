@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 import { Hero } from '../../models/hero/hero.model';
 import { HeroService } from '../../services/hero.service';
+import { cloneDeep } from 'lodash';
 
 @Component({
   selector: 'app-hero-detail',
@@ -10,22 +11,40 @@ import { HeroService } from '../../services/hero.service';
 })
 export class HeroDetailComponent implements OnInit {
 
-  public hero: Hero =  new Hero('Placeholder', -1);
+  public hero: Hero =  new Hero('', -1);
+  public isCreating = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private hs : HeroService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       const id = Number(params['id']);
-      this.hs.getHeroById$(id).subscribe(res=>{
-        if(res!==undefined){
-          this.hero = res;
-        }
-        else{
-         this.closeDetail();
-        }
-      })
+      if(id===-1)
+      {
+        this.isCreating = true;
+      }
+      else{
+        this.isCreating = false;
+        this.hs.getHeroById$(id).subscribe(res=>{
+          if(res!==undefined){
+            this.hero = cloneDeep(res);
+          }
+          else{
+          this.closeDetail();
+          }
+        })
+      }
     })
+  }
+
+  public saveDetail():void{
+    if(this.isCreating){
+      this.hs.createHero(this.hero.name);
+    }
+    else{
+      this.hs.updateHero(this.hero);
+    }
+    this.router.navigate(['']);
   }
 
   public closeDetail(): void{
