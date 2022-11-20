@@ -1,38 +1,5 @@
-h1{
-    color: white;
-    font-style: italic;
-    text-align: center;
-}
-button{
-    padding: 0px 20px;
-    height: 50px;
-    background-color: #00000033;
-    font-style: italic;
-    font-weight: 600;
-    outline: none;
-    border: none;
-    color:white;
-    font-size: 22px;
-    font-family: "Taviraj", serif;
-    &:hover{
-        cursor: pointer;
-        transition: background-color 0.5s ease;
-        background-color: rgba(white,0);
-    }
-}
-input{
-    background: transparent;
-    color: white;
-    font-size: 22px;
-    font-family: "Taviraj", serif;
-    font-style: italic;
-    font-weight: 600;
-    border: none;
-    outline: none;
-    border: 1px white;
-    background-color: rgba(0, 0, 0, 0.2);
-    text-indent: 15px;
-}
+@import "../colors.scss";
+
 .content{
     margin: 0 auto;
     max-width: 50%;
@@ -45,13 +12,32 @@ input{
        &-dash{
         margin-right: 20px;
        } 
+       &-search{
+        height: 48px;
+       }
+       &-create{
+        color: $punchyellow;
+       }
+       &-others{
+        display: flex;
+        flex-wrap: nowrap;
+       }
     &-active{
         background-color: transparent;
         border-bottom: 2px solid white;
+        color: $punchyellow;
     }
   }
 }
-
+.scrollable{
+    height: calc(100vh - 295px);
+    overflow: auto;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;  
+    &::-webkit-scrollbar{
+        display: none;  
+    } 
+}
 @media only screen and (max-width: 1279px) {
     .controls-switch-search{
         margin-top: 20px;

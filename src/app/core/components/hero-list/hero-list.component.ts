@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { Router } from '@angular/router';
 import { Hero } from '../../models/hero/hero.model';
 import { HeroService } from '../../services/hero.service';
 
@@ -10,12 +11,14 @@ import { HeroService } from '../../services/hero.service';
 export class HeroListComponent {
   
   public heroes : Hero [] = [];
-  constructor(private hs: HeroService) {
+  constructor(private hs: HeroService, private router: Router) {
     hs.getHeroes$().subscribe((res)=>{
       this.heroes = res;
     })
   }
   openHeroDetail($event : Hero){
+    let route = 'hero/'+$event.id;
+    this.router.navigate([route]);
   }
   deleteHero($event : Hero){
     this.hs.deleteHero($event);

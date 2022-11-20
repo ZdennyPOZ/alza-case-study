@@ -23,12 +23,16 @@ export class HeroService {
     return this._heroList.find((hero: Hero) => hero.id === id);
   }
 
-  private getHeroIndex(hero: Hero) {
+  private getHeroIndex(hero: Hero) : number{
     return this._heroList.indexOf(hero);
   }
 
   public getHeroes$(): Observable<Hero[]> {
     return of(this._heroList);
+  }
+
+  public getHeroById$(id:number): Observable<Hero | undefined>{
+    return of(this._heroList.find(hero => hero.id === id));
   }
 
   public updateHero(hero: Hero): void {

@@ -5,6 +5,12 @@ import { HeroListItemComponent } from './core/components/hero-list-item/hero-lis
 import { HeroListComponent } from './core/components/hero-list/hero-list.component';
 import { DashboardItemComponent } from './core/components/dashboard-item/dashboard-item.component';
 import { DashboardComponent } from './core/components/dashboard/dashboard.component';
+import { RouterModule, Routes } from '@angular/router';
+
+
+const routes: Routes = [
+  { path: 'hero', loadChildren: () => import('./core/components/hero-detail/hero-detail.module').then(m => m.HeroDetailModule) }
+];
 
 @NgModule({
   declarations: [
@@ -12,10 +18,11 @@ import { DashboardComponent } from './core/components/dashboard/dashboard.compon
     HeroListItemComponent,
     HeroListComponent,
     DashboardItemComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent]

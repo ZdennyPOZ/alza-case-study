@@ -1,15 +1,21 @@
+@import '../../../../colors.scss';
+
 .item{
-    background-color: rgba(white,0.05);
+    background-color: $tspwhite;
     min-width: 250px;
     height: 100px;
-    color: white;
+    color: $defwhite;
     font-size: 22px;
-    line-height: 100px; 
-    text-align: center;
+    display: flex;
+    align-items: center;
     letter-spacing: 5px;
+    &-info{
+        text-align: center;
+        width: 100%;
+    }
     &:hover{
         cursor: pointer;
         transition: background-color 0.5s ease;
-        background-color: rgba(white,0);
+        background-color: transparent;
     }
 }
