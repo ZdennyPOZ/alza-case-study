@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { HeroDetailComponent } from './hero-detail.component';
 import { FormsModule } from '@angular/forms';
 
-
 const routes: Routes = [
   { path: ':id', component: HeroDetailComponent }
 ];
@@ -16,7 +15,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ]
 })
 export class HeroDetailModule { }

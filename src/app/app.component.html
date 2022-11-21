@@ -1,16 +1,41 @@
 <h1>Tour of heroes</h1>
 <div class="content">
-    <div class="controls">
-        <div class="controls-switch">
-            <button class="controls-switch-dash" [ngClass]="{'controls-switch-active': showDashboard === true}" (click)="showDash()">Dashboard</button>
-            <button class="controls-switch-list" [ngClass]="{'controls-switch-active': !showDashboard === true}" (click)="showList()">Heroes</button>
-        </div>
-        <button class="controls-switch-create" (click)='createNewHero()'>+</button>
-        <input class="controls-switch-search" placeholder="Find your hero..">
+  <div class="controls">
+    <div class="controls-switch">
+      <button
+        class="controls-switch-dash"
+        [ngClass]="{ 'controls-switch-active': showDashboard === true }"
+        (click)="showDash()"
+      >
+        Dashboard
+      </button>
+      <button
+        class="controls-switch-list"
+        [ngClass]="{ 'controls-switch-active': !showDashboard === true }"
+        (click)="showList()"
+      >
+        Heroes
+      </button>
     </div>
-    <div class="scrollable">
-        <router-outlet></router-outlet>
-        <dashboard *ngIf="showDashboard && !showDetail"></dashboard>
-        <hero-list *ngIf="!showDashboard && !showDetail"></hero-list>
-    </div>
+    <button class="controls-switch-create" (click)="createNewHero()">+</button>
+    <form class="controls-switch-search">
+      <input
+        #autoinput
+        [formControl]="heroControl"
+        [matAutocomplete]="auto"
+        class="controls-switch-search"
+        placeholder="Find your hero.."
+      />
+      <mat-autocomplete [displayWith]="getHeroName" #auto="matAutocomplete" (optionSelected)="openHeroDetail($event)">
+        <mat-option *ngFor="let hero of filteredHeroes" [value]="hero">
+          {{ hero.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </form>
+  </div>
+  <div class="scrollable">
+    <router-outlet></router-outlet>
+    <dashboard *ngIf="showDashboard && !showDetail"></dashboard>
+    <hero-list *ngIf="!showDashboard && !showDetail"></hero-list>
+  </div>
 </div>
