@@ -1,12 +1,19 @@
 import { TestBed } from '@angular/core/testing';
+import { MatAutocomplete } from '@angular/material';
 import { AppComponent } from './app.component';
+import { RouterTestingModule } from "@angular/router/testing";
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        MatAutocomplete
       ],
+      imports:[
+        RouterTestingModule.withRoutes([{ path: 'hero', loadChildren: () => import('./core/components/hero-detail/hero-detail.module').then(m => m.HeroDetailModule) }])
+      ],
+      teardown: {destroyAfterEach: false}
     }).compileComponents();
   });
 
@@ -14,18 +21,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'alza-case-study'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('alza-case-study');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('alza-case-study app is running!');
   });
 });
