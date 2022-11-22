@@ -70,9 +70,11 @@ input{
     
 }
 .mat-option{
-    letter-spacing: 5px;
+    font-weight: 600;
     &:hover{
-        font-weight: 600;
+        color: white;
+        transition: letter-spacing 0.5s ease;
+        letter-spacing: 5px;
     } 
 }
 @media only screen and (max-width: 768px) {

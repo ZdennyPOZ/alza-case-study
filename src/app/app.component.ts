@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { cloneDeep } from 'lodash';
@@ -11,7 +11,8 @@ import { HeroService } from './core/services/hero.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-
+  
+  @ViewChild('autoinput') autocomplete! : ElementRef;
   public heroControl = new FormControl('');
   heroes : Hero[] = [];
   filteredHeroes: Hero[] = [];
@@ -48,6 +49,8 @@ export class AppComponent implements OnInit{
     this.router.navigate(['hero/-1']);
   }
   public openHeroDetail($evt:any): void{
+    this.autocomplete.nativeElement.value = "";
+    this.autocomplete.nativeElement.blur();
     let route = 'hero/' + $evt.option.value._id;
     this.router.navigate([route]);
   }
