@@ -7,6 +7,8 @@ import { DashboardItemComponent } from './core/components/dashboard-item/dashboa
 import { DashboardComponent } from './core/components/dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LongNameDirective } from './core/directives/long-name.directive';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -25,6 +27,9 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

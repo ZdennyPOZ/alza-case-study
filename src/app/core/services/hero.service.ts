@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Hero } from '../models/hero/hero.model';
-import { of, Observable } from 'rxjs';
+import { of, Observable, switchMap, filter } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -34,6 +34,7 @@ export class HeroService {
   public getHeroById$(id:number): Observable<Hero | undefined>{
     return of(this._heroList.find(hero => hero.id === id));
   }
+  
 
   public updateHero(hero: Hero): void {
     let selectedHero: Hero | undefined = this.getHero(hero.id);
