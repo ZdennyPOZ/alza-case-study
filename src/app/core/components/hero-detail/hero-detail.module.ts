@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { HeroDetailComponent } from './hero-detail.component';
 import { FormsModule } from '@angular/forms';
-
+import { AppComponent } from 'src/app/app.component';
 
 const routes: Routes = [
-  { path: ':id', component: HeroDetailComponent }
+  { path: ':id', component: HeroDetailComponent },
+  { path: '', component: AppComponent },
 ];
 
 @NgModule({
@@ -16,7 +17,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ]
 })
 export class HeroDetailModule { }
