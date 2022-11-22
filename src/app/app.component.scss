@@ -8,12 +8,14 @@
     display: flex;
     justify-content:space-between;
     flex-wrap: wrap;
+    margin-right: 4px;
     &-switch{
        &-dash{
         margin-right: 20px;
        } 
        &-search{
         height: 48px;
+        width: 100%;
        }
        &-create{
         color: $punchyellow;
@@ -39,10 +41,10 @@
     } 
 }
 @media only screen and (max-width: 1279px) {
-    .controls-switch-search{
+    .controls-switch-form{
         margin-top: 20px;
         width: 100%;
-    }
+     }
 }
 
 @media only screen and (max-width: 768px) {
