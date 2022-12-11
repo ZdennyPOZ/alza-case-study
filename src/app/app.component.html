@@ -26,7 +26,11 @@
         class="controls-switch-search"
         placeholder="Find your hero.."
       />
-      <mat-autocomplete [displayWith]="getHeroName" #auto="matAutocomplete" (optionSelected)="openHeroDetail($event)">
+      <mat-autocomplete
+        [displayWith]="getHeroName"
+        #auto="matAutocomplete"
+        (optionSelected)="openHeroDetail($event)"
+      >
         <mat-option *ngFor="let hero of filteredHeroes" [value]="hero">
           {{ hero.name }}
         </mat-option>

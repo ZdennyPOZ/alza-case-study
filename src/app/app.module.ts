@@ -11,9 +11,14 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 const routes: Routes = [
-  { path: 'hero', loadChildren: () => import('./core/components/hero-detail/hero-detail.module').then(m => m.HeroDetailModule) }
+  {
+    path: 'hero',
+    loadChildren: () =>
+      import('./core/components/hero-detail/hero-detail.module').then(
+        (m) => m.HeroDetailModule
+      ),
+  },
 ];
 
 @NgModule({
@@ -31,9 +36,9 @@ const routes: Routes = [
     MatAutocompleteModule,
     ReactiveFormsModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

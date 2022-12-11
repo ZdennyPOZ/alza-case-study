@@ -23,7 +23,7 @@ export class HeroService {
     return this._heroList.find((hero: Hero) => hero.id === id);
   }
 
-  private getHeroIndex(hero: Hero) : number{
+  private getHeroIndex(hero: Hero): number {
     return this._heroList.indexOf(hero);
   }
 
@@ -31,10 +31,9 @@ export class HeroService {
     return of(this._heroList);
   }
 
-  public getHeroById$(id:number): Observable<Hero | undefined>{
-    return of(this._heroList.find(hero => hero.id === id));
+  public getHeroById$(id: number): Observable<Hero | undefined> {
+    return of(this._heroList.find((hero) => hero.id === id));
   }
-  
 
   public updateHero(hero: Hero): void {
     let selectedHero: Hero | undefined = this.getHero(hero.id);

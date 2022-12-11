@@ -1,4 +1,9 @@
 <h2>All heroes</h2>
 <div class="hero-list">
-    <hero-item [hero]="hero" (onDetailClick)="openHeroDetail($event)" (onDeleteClick)="deleteHero($event)" *ngFor="let hero of heroes"></hero-item>
+  <hero-item
+    [hero]="hero"
+    (onDetailClick)="openHeroDetail($event)"
+    (onDeleteClick)="deleteHero($event)"
+    *ngFor="let hero of heroes"
+  ></hero-item>
 </div>

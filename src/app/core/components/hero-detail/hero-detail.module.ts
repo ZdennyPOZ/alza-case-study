@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HeroDetailComponent } from './hero-detail.component';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from 'src/app/app.component';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const routes: Routes = [
   { path: ':id', component: HeroDetailComponent },
@@ -12,14 +12,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    HeroDetailComponent
-  ],
+  declarations: [HeroDetailComponent],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule.forChild(routes),
-    MatSnackBarModule
-  ]
+    MatSnackBarModule,
+  ],
 })
-export class HeroDetailModule { }
+export class HeroDetailModule {}
