@@ -9,6 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LongNameDirective } from './core/directives/long-name.directive';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 const routes: Routes = [
@@ -29,7 +30,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     MatAutocompleteModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

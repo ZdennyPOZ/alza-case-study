@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { MatAutocomplete } from '@angular/material';
+import { MatAutocomplete } from '@angular/material/autocomplete';
 import { AppComponent } from './app.component';
 import { RouterTestingModule } from "@angular/router/testing";
 

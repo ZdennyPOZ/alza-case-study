@@ -4,6 +4,7 @@ import { Hero } from '../../models/hero/hero.model';
 import { HeroService } from '../../services/hero.service';
 import { cloneDeep } from 'lodash';
 import { Subject, takeUntil } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-hero-detail',
@@ -16,7 +17,7 @@ export class HeroDetailComponent implements OnInit, OnDestroy{
   destroyed$: Subject<boolean> = new Subject();
   public isCreating = false;
 
-  constructor(private route: ActivatedRoute, private router: Router, private hs : HeroService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private hs : HeroService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -47,6 +48,15 @@ export class HeroDetailComponent implements OnInit, OnDestroy{
   }
 
   public saveDetail():void{
+    if(this.hero.name === ''){
+      this.snackBar.open('Plase enter hero name.', 'Close',
+      {
+        duration:2000,
+        panelClass:'warning-snackbar'
+      }
+    ); 
+      return;
+    }
     if(this.isCreating){
       this.hs.createHero(this.hero.name);
     }
