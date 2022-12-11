@@ -9,10 +9,9 @@ describe('HeroListItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeroListItemComponent ],
-      schemas:[CUSTOM_ELEMENTS_SCHEMA]
-    })
-    .compileComponents();
+      declarations: [HeroListItemComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HeroListItemComponent);
     component = fixture.componentInstance;

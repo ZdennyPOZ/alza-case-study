@@ -1,19 +1,24 @@
 import { TestBed } from '@angular/core/testing';
-import { MatAutocomplete } from '@angular/material';
+import { MatAutocomplete } from '@angular/material/autocomplete';
 import { AppComponent } from './app.component';
-import { RouterTestingModule } from "@angular/router/testing";
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent,
-        MatAutocomplete
+      declarations: [AppComponent, MatAutocomplete],
+      imports: [
+        RouterTestingModule.withRoutes([
+          {
+            path: 'hero',
+            loadChildren: () =>
+              import('./core/components/hero-detail/hero-detail.module').then(
+                (m) => m.HeroDetailModule
+              ),
+          },
+        ]),
       ],
-      imports:[
-        RouterTestingModule.withRoutes([{ path: 'hero', loadChildren: () => import('./core/components/hero-detail/hero-detail.module').then(m => m.HeroDetailModule) }])
-      ],
-      teardown: {destroyAfterEach: false}
+      teardown: { destroyAfterEach: false },
     }).compileComponents();
   });
 

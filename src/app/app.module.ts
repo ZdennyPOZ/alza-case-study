@@ -9,10 +9,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { LongNameDirective } from './core/directives/long-name.directive';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
-  { path: 'hero', loadChildren: () => import('./core/components/hero-detail/hero-detail.module').then(m => m.HeroDetailModule) }
+  {
+    path: 'hero',
+    loadChildren: () =>
+      import('./core/components/hero-detail/hero-detail.module').then(
+        (m) => m.HeroDetailModule
+      ),
+  },
 ];
 
 @NgModule({
@@ -29,9 +35,10 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     MatAutocompleteModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

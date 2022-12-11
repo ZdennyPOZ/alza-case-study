@@ -1,22 +1,22 @@
 <div class="detail">
-    <div class="detail-info">
-        <h2 class="detail-info-heading" *ngIf="!isCreating">Hero detail</h2>
-        <h2 class="detail-info-heading" *ngIf="isCreating">Hero creation</h2>
+  <div class="detail-info">
+    <h2 class="detail-info-heading" *ngIf="!isCreating">Hero detail</h2>
+    <h2 class="detail-info-heading" *ngIf="isCreating">Hero creation</h2>
 
-        <div class="detail-info-readonly" *ngIf="!isCreating">
-            <span class="detail-info-label">Id:</span>
-            <span class="detail-info-data">{{hero.id}}</span>
-        </div>
-        <div class="detail-info-readonly" *ngIf="isCreating">
-            <span class="detail-info-label">Plase specify your hero's name.</span>
-        </div>
-        <div class="detail-info-input">
-            <span class="detail-info-label">Name:</span>
-            <input [(ngModel)]="hero.name">
-        </div>
+    <div class="detail-info-readonly" *ngIf="!isCreating">
+      <span class="detail-info-label">Id:</span>
+      <span class="detail-info-data">{{ hero.id }}</span>
     </div>
-    <div class="detail-actions">
-        <button (click)="saveDetail()">Save</button>
-        <button (click)="closeDetail()">Close</button>
+    <div class="detail-info-readonly" *ngIf="isCreating">
+      <span class="detail-info-label">Plase specify your hero's name.</span>
     </div>
+    <div class="detail-info-input">
+      <span class="detail-info-label">Name:</span>
+      <input [(ngModel)]="hero.name" />
+    </div>
+  </div>
+  <div class="detail-actions">
+    <button (click)="saveDetail()">Save</button>
+    <button (click)="closeDetail()">Close</button>
+  </div>
 </div>

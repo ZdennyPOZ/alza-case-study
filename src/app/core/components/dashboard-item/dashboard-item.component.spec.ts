@@ -9,10 +9,9 @@ describe('DashboardItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DashboardItemComponent ],
-      schemas:[CUSTOM_ELEMENTS_SCHEMA]
-    })
-    .compileComponents();
+      declarations: [DashboardItemComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DashboardItemComponent);
     component = fixture.componentInstance;
