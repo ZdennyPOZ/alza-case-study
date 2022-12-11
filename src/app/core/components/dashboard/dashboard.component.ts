@@ -1,5 +1,6 @@
-import { Component} from '@angular/core';
+import { Component, OnDestroy} from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
 import { Hero } from '../../models/hero/hero.model';
 import { HeroService } from '../../services/hero.service';
 
@@ -8,14 +9,22 @@ import { HeroService } from '../../services/hero.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnDestroy {
 
   public heroes : Hero [] = [];
+  destroyed$: Subject<boolean> = new Subject()
   
   constructor(private hs: HeroService, private router: Router) {
-    hs.getHeroes$().subscribe((res)=>{
+    hs.getHeroes$()
+    .pipe(takeUntil(this.destroyed$))
+    .subscribe((res)=>{
       this.heroes = res;
     })
+  }
+
+  ngOnDestroy(): void {
+    this.destroyed$.next(true);
+    this.destroyed$.complete();
   }
 
   openHeroDetail($event : Hero){
